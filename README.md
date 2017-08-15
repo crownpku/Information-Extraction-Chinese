@@ -1,6 +1,10 @@
 # Information-Extraction-Chinese
 
+## UNDER HEAVY DEVELOPMENT
+
 Trials on different algorithms and open source tools for Chinese information extraction.
+
+没有标注语料数据怎么办？？？
 
 ### Reference
 
