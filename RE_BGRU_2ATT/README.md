@@ -1,3 +1,4 @@
+
 # Neural Relation Extraction for Chinese
 
 Bi-directional GRU with Word and Sentence Dual Attentions for Relation Extraction
@@ -5,7 +6,7 @@ Bi-directional GRU with Word and Sentence Dual Attentions for Relation Extractio
 Original Code in https://github.com/thunlp/TensorFlow-NRE, modified for Chinese.
 
 
-### Requrements
+## Requrements
 
 * Python (>=3.5)
 
@@ -14,27 +15,30 @@ Original Code in https://github.com/thunlp/TensorFlow-NRE, modified for Chinese.
 * scikit-learn (>=0.18)
 
 
-### Usage:
+## Usage:
 
-* Training:
+
+### * Training:
 
 1. Prepare data in origin_data/ , including relation types (relation2id.txt), training data (train.txt), testing data (test.txt) and Chinese word vectors (vec.txt).
 
+```
 Current sample data includes the following 12 relationships:
-
 unknown, 父母, 夫妻, 师生, 兄弟姐妹, 合作, 情侣, 祖孙, 好友, 亲戚, 同门, 上下级
+```
 
-2. Organize data into npy files
+2. Organize data into npy files, which will be save at data/
 ```
 python initial.py
 ```
 
-3. Training
+3. Training, models will be save at model/
 ```
 python train_GRU.py
 ```
 
-* Inference:
+
+### * Inference, remeber to change the model name:
 
 ```
 python test_GRU.py
@@ -43,7 +47,11 @@ python test_GRU.py
 Program will ask for data input in the format of "name1 name2 sentence".
 
 
-### Sample Results:
+## Sample Results:
+
+We make up some sentences and test the performance. The model gives good results, sometimes wrong but reasonable.
+
+More data is needed for better performance.
 
 ```
 INFO:tensorflow:Restoring parameters from ./model/ATT_GRU_model-9000
@@ -52,11 +60,11 @@ reading relation to id
 
 实体1: 李晓华
 实体2: 王大牛
-李晓华和王大牛是一对甜蜜的夫妻，前日他们一起去英国旅行。
+李晓华和她的丈夫王大牛前日一起去英国旅行了。
 关系是:
-No.1: 夫妻, Probability is 0.906954
-No.2: 情侣, Probability is 0.0648417
-No.3: 好友, Probability is 0.0189635
+No.1: 夫妻, Probability is 0.996217
+No.2: 父母, Probability is 0.00193673
+No.3: 兄弟姐妹, Probability is 0.00128172
 
 实体1: 李晓华
 实体2: 王大牛
@@ -65,5 +73,69 @@ No.3: 好友, Probability is 0.0189635
 No.1: 好友, Probability is 0.526823
 No.2: 兄弟姐妹, Probability is 0.177491
 No.3: 夫妻, Probability is 0.132977
+
+实体1: 李晓华
+实体2: 王大牛
+王大牛命令李晓华在周末前完成这份代码。
+关系是:
+No.1: 上下级, Probability is 0.965674
+No.2: 亲戚, Probability is 0.0185355
+No.3: 父母, Probability is 0.00953698
+
+实体1: 李晓华
+实体2: 王大牛
+王大牛非常疼爱他的孙女李晓华小朋友。
+关系是:
+No.1: 祖孙, Probability is 0.785542
+No.2: 好友, Probability is 0.0829895
+No.3: 同门, Probability is 0.0728216
+
+实体1: 李晓华
+实体2: 王大牛
+谈起曾经一起求学的日子，王大牛非常怀念他的师妹李晓华。
+关系是:
+No.1: 师生, Probability is 0.735982
+No.2: 同门, Probability is 0.159495
+No.3: 兄弟姐妹, Probability is 0.0440367
+
+实体1: 李晓华
+实体2: 王大牛
+王大牛对于他的学生李晓华做出的成果非常骄傲！
+关系是:
+No.1: 师生, Probability is 0.994964
+No.2: 父母, Probability is 0.00460191
+No.3: 夫妻, Probability is 0.000108601
+
+实体1: 李晓华
+实体2: 王大牛
+王大牛和李晓华是从小一起长大的好哥们
+关系是:
+No.1: 兄弟姐妹, Probability is 0.852632
+No.2: 亲戚, Probability is 0.0477967
+No.3: 好友, Probability is 0.0433101
+
+实体1: 李晓华
+实体2: 王大牛
+王大牛的表舅叫李晓华的二妈为大姐
+关系是:
+No.1: 亲戚, Probability is 0.766272
+No.2: 父母, Probability is 0.162108
+No.3: 兄弟姐妹, Probability is 0.0623203
+
+实体1: 李晓华
+实体2: 王大牛
+这篇论文是王大牛负责编程，李晓华负责写作的。
+关系是:
+No.1: 合作, Probability is 0.907599
+No.2: unknown, Probability is 0.082604
+No.3: 上下级, Probability is 0.00730342
+
+实体1: 李晓华
+实体2: 王大牛
+王大牛和李晓华为谁是论文的第一作者争得头破血流。
+关系是:
+No.1: 合作, Probability is 0.819008
+No.2: 上下级, Probability is 0.116768
+No.3: 师生, Probability is 0.0448312
 ```
 
