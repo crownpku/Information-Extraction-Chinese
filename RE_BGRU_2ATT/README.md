@@ -20,7 +20,11 @@ Original Code in https://github.com/thunlp/TensorFlow-NRE, modified for Chinese.
 
 1. Prepare data in origin_data/ , including relation types (relation2id.txt), training data (train.txt), testing data (test.txt) and Chinese word vectors (vec.txt).
 
-2. Prepare data
+Current sample data includes the following 12 relationships:
+
+unknown, 父母, 夫妻, 师生, 兄弟姐妹, 合作, 情侣, 祖孙, 好友, 亲戚, 同门, 上下级
+
+2. Organize data into npy files
 ```
 python initial.py
 ```
