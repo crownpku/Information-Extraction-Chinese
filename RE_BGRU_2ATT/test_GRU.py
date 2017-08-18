@@ -7,7 +7,6 @@ import datetime
 import os
 import network
 from sklearn.metrics import average_precision_score
-from checkpoint_compat import transform_name_var_dict
 
 FLAGS = tf.app.flags.FLAGS
 
@@ -23,7 +22,6 @@ def pos_embed(x):
 
 
 def main_for_evaluation():
-    # ATTENTION: change pathname before you load your model
     pathname = "./model/ATT_GRU_model-"
 
     wordembedding = np.load('./data/vec.npy')
@@ -82,7 +80,7 @@ def main_for_evaluation():
             names_to_vars = {v.op.name: v for v in tf.global_variables()}
             saver = tf.train.Saver(names_to_vars)
 
-            # ATTENTION: change the list to the iters you want to test !!
+        
             #testlist = range(1000, 1800, 100)
             testlist = [9000]
             
@@ -116,7 +114,7 @@ def main_for_evaluation():
                 print('saving all test result...')
                 current_step = model_iter
 
-                # ATTENTION: change the save path before you save your result !!
+                
                 np.save('./out/allprob_iter_' + str(current_step) + '.npy', allprob)
                 allans = np.load('./data/allans.npy')
 
