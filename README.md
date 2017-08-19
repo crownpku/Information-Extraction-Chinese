@@ -2,11 +2,12 @@
 
 ## UNDER HEAVY DEVELOPMENT
 
-Trials on different algorithms and open source tools for Chinese information extraction.
+Different algorithms and open source tools for Chinese information extraction.
 
-没有标注语料数据怎么办？？？
+### * [Neural Relation Extraction for Chinese](https://github.com/crownpku/Information-Extraction-Chinese/tree/master/RE_BGRU_2ATT)
 
-### Reference
+
+## Reference
 
 * Neural NER: [[github](https://github.com/zjy-ucas/ChineseNER)]
 
