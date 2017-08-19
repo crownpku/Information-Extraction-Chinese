@@ -1,9 +1,15 @@
 
 # Neural Relation Extraction for Chinese
 
+### [中文Blog](http://www.crownpku.com//2017/08/19/%E7%94%A8Bi-GRU%E5%92%8C%E5%AD%97%E5%90%91%E9%87%8F%E5%81%9A%E4%B8%AD%E6%96%87%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96.html)
+
 Bi-directional GRU with Word and Sentence Dual Attentions for Relation Extraction
 
 Original Code in https://github.com/thunlp/TensorFlow-NRE, modified for Chinese.
+
+![](http://www.crownpku.com/images/201708/1.jpg)
+
+![](http://www.crownpku.com/images/201708/2.jpg)
 
 
 ## Requrements
@@ -15,7 +21,7 @@ Original Code in https://github.com/thunlp/TensorFlow-NRE, modified for Chinese.
 * scikit-learn (>=0.18)
 
 
-## Usage:
+## Usage
 
 
 ### * Training:
@@ -47,7 +53,7 @@ python test_GRU.py
 Program will ask for data input in the format of "name1 name2 sentence".
 
 
-## Sample Results:
+## Sample Results
 
 We make up some sentences and test the performance. The model gives good results, sometimes wrong but reasonable.
 
