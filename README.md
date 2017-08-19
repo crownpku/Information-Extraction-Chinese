@@ -4,7 +4,7 @@
 
 Different algorithms and open source tools for Chinese information extraction.
 
-### * [Neural Relation Extraction for Chinese](https://github.com/crownpku/Information-Extraction-Chinese/tree/master/RE_BGRU_2ATT)
+### * [End-to-End Neural Relation Extraction for Chinese](https://github.com/crownpku/Information-Extraction-Chinese/tree/master/RE_BGRU_2ATT)
 
 
 ## Reference

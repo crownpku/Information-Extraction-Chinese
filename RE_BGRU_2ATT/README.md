@@ -1,9 +1,9 @@
 
-# Neural Relation Extraction for Chinese
+# End-to-End Neural Relation Extraction for Chinese
 
-### [中文Blog](http://www.crownpku.com//2017/08/19/%E7%94%A8Bi-GRU%E5%92%8C%E5%AD%97%E5%90%91%E9%87%8F%E5%81%9A%E4%B8%AD%E6%96%87%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96.html)
+### [中文Blog](http://www.crownpku.com//2017/08/19/%E7%94%A8Bi-GRU%E5%92%8C%E5%AD%97%E5%90%91%E9%87%8F%E5%81%9A%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84%E4%B8%AD%E6%96%87%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96.html)
 
-Bi-directional GRU with Word and Sentence Dual Attentions for Relation Extraction
+Bi-directional GRU with Word and Sentence Dual Attentions for End-to End Relation Extraction
 
 Original Code in https://github.com/thunlp/TensorFlow-NRE, modified for Chinese.
 
