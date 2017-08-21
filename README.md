@@ -2,9 +2,12 @@
 
 ## UNDER HEAVY DEVELOPMENT
 
-Different algorithms and open source tools for Chinese information extraction.
+Chinese information extraction, including named entity recognition, relation extraction and more.
 
-### * [End-to-End Neural Relation Extraction for Chinese](https://github.com/crownpku/Information-Extraction-Chinese/tree/master/RE_BGRU_2ATT)
+
+#### [End-to-End Neural Relation Extraction for Chinese](https://github.com/crownpku/Information-Extraction-Chinese/tree/master/RE_BGRU_2ATT)
+
+Detailed readme.md in Information-Extraction-Chinese/RE_BGRU_2ATT/
 
 
 ## Reference
