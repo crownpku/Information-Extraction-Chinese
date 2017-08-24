@@ -7,6 +7,8 @@ Bi-directional GRU with Word and Sentence Dual Attentions for End-to End Relatio
 
 Original Code in https://github.com/thunlp/TensorFlow-NRE, modified for Chinese.
 
+Original paper [Attention-Based Bidirectional Long Short-Term Memory Networks for Relation Classification](http://anthology.aclweb.org/P16-2034) and [Neural Relation Extraction with Selective Attention over Instances](http://aclweb.org/anthology/P16-1200)
+
 ![](http://www.crownpku.com/images/201708/1.jpg)
 
 ![](http://www.crownpku.com/images/201708/2.jpg)

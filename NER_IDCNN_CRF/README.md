@@ -6,6 +6,8 @@ End to End Chinese Named Entity Recognition by Iterated Dilated Convolution Neru
 
 Original code in https://github.com/zjy-ucas/ChineseNER with BiLSTM+CRF, modified with option to use new model IDCNN+CRF, inspired by [kcws](https://github.com/koth/kcws) which uses IDCNN for word segment.
 
+Original paper [Fast and Accurate Entity Recognition with Iterated Dilated Convolutions](https://arxiv.org/abs/1702.02098)
+
 
 ## Requrements
 
