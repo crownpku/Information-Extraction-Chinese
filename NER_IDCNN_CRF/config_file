@@ -1,0 +1,18 @@
+{
+    "model_type": "idcnn",
+    "num_chars": 4412,
+    "char_dim": 100,
+    "num_tags": 13,
+    "seg_dim": 20,
+    "lstm_dim": 100,
+    "batch_size": 20,
+    "emb_file": "data/vec.txt",
+    "clip": 5,
+    "dropout_keep": 0.5,
+    "optimizer": "adam",
+    "lr": 0.001,
+    "tag_schema": "iobes",
+    "pre_emb": true,
+    "zeros": false,
+    "lower": true
+}
