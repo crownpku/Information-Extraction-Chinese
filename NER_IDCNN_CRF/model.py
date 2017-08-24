@@ -28,8 +28,7 @@ class Model(object):
         self.best_test_f1 = tf.Variable(0.0, trainable=False)
         self.initializer = initializers.xavier_initializer()
         
-        #Add model type by crownpku， bilstm or idcnn
-        self.model_type = config['model_type']
+        
 
         # add placeholders for the model
 
@@ -52,6 +51,30 @@ class Model(object):
         self.lengths = tf.cast(length, tf.int32)
         self.batch_size = tf.shape(self.char_inputs)[0]
         self.num_steps = tf.shape(self.char_inputs)[-1]
+        
+        
+        #Add model type by crownpku， bilstm or idcnn
+        self.model_type = config['model_type']
+        #parameters for idcnn
+        self.layers = [
+            {
+                'dilation': 1
+            },
+            {
+                'dilation': 1
+            },
+            {
+                'dilation': 2
+            },
+        ]
+        self.filter_width = 3
+        #self.num_filter = self.lstm_dim
+        self.num_filter = self.lengths
+        self.embedding_dim = self.char_dim
+        self.repeat_times = 4
+        self.cnn_output_width = 0
+        
+        
 
         # embeddings for chinese character and segmentation representation
         embedding = self.embedding_layer(self.char_inputs, self.seg_inputs, config)
@@ -71,7 +94,7 @@ class Model(object):
             model_inputs = tf.nn.dropout(embedding, self.dropout)
 
             # ldcnn layer
-            model_outputs = self.IDCNN_layer(lstm_inputs, self.lstm_dim, self.lengths)
+            model_outputs = self.IDCNN_layer(model_inputs)
 
             # logits for tags
             self.logits = self.project_layer_idcnn(model_outputs)
@@ -127,7 +150,7 @@ class Model(object):
             embed = tf.concat(embedding, axis=-1)
         return embed
 
-    def biLSTM_layer(self, lstm_inputs, lstm_dim, lengths, name=None):
+    def biLSTM_layer(self, model_inputs, lstm_dim, lengths, name=None):
         """
         :param lstm_inputs: [batch_size, num_steps, emb_size] 
         :return: [batch_size, num_steps, 2*lstm_dim] 
@@ -144,13 +167,14 @@ class Model(object):
             outputs, final_states = tf.nn.bidirectional_dynamic_rnn(
                 lstm_cell["forward"],
                 lstm_cell["backward"],
-                lstm_inputs,
+                model_inputs,
                 dtype=tf.float32,
                 sequence_length=lengths)
         return tf.concat(outputs, axis=2)
     
     #IDCNN layer by crownpku
-    def IDCNN_layer(self, idcnn_inputs, name=None):
+    def IDCNN_layer(self, model_inputs, 
+                    name=None):
         """
         :param idcnn_inputs: [batch_size, num_steps, emb_size] 
         :return: [batch_size, num_steps, cnn_output_width]
@@ -160,8 +184,8 @@ class Model(object):
                 "idcnn_filter",
                 shape=[1, self.filter_width, self.embedding_dim,
                        self.num_filter],
-                initializer=tf.contrib.layers.xavier_initializer())
-            layerInput = tf.nn.conv2d(X,
+                initializer=self.initializer)
+            layerInput = tf.nn.conv2d(model_inputs,
                                       filter_weights,
                                       strides=[1, 1, 1, 1],
                                       padding="SAME",
@@ -197,6 +221,7 @@ class Model(object):
 
             finalOut = tf.squeeze(finalOut, [1])
             finalOut = tf.reshape(finalOut, [-1, totalWidthForLastDim])
+            self.cnn_output_width = totalWidthForLastDim
             return finalOut
 
     def project_layer_bilstm(self, lstm_outputs, name=None):
@@ -242,7 +267,7 @@ class Model(object):
                                     dtype=tf.float32, initializer=self.initializer)
 
                 b = tf.get_variable("b", shape=[self.num_tags], dtype=tf.float32,
-                                    initializer=initializer=tf.constant(0.001, shape=[self.num_tags]))
+                                    initializer=tf.constant(0.001, shape=[self.num_tags]))
 
                 pred = tf.nn.xw_plus_b(idcnn_outputs, W, b)
 
