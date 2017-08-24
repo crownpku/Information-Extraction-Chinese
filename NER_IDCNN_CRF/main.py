@@ -36,7 +36,7 @@ flags.DEFINE_boolean("lower",       True,       "Wither lower case")
 
 flags.DEFINE_integer("max_epoch",   100,        "maximum training epochs")
 flags.DEFINE_integer("steps_check", 100,        "steps per checkpoint")
-flags.DEFINE_string("ckpt_path",    "ckpt_IDCNN",      "Path to save model")
+flags.DEFINE_string("ckpt_path",    "ckpt",      "Path to save model")
 flags.DEFINE_string("summary_path", "summary",      "Path to store summaries")
 flags.DEFINE_string("log_file",     "train.log",    "File for log")
 flags.DEFINE_string("map_file",     "maps.pkl",     "file for maps")
