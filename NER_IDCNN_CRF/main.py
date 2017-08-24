@@ -17,7 +17,7 @@ from data_utils import load_word2vec, create_input, input_from_line, BatchManage
 
 flags = tf.app.flags
 flags.DEFINE_boolean("clean",       False,      "clean train folder")
-flags.DEFINE_boolean("train",       False,      "Wither train the model")
+flags.DEFINE_boolean("train",       False,      "Whether train the model")
 # configurations for the model
 flags.DEFINE_integer("seg_dim",     20,         "Embedding size for segmentation, 0 if not used")
 flags.DEFINE_integer("char_dim",    100,        "Embedding size for characters")

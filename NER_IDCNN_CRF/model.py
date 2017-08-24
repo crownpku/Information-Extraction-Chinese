@@ -68,9 +68,8 @@ class Model(object):
             },
         ]
         self.filter_width = 3
-        #self.num_filter = self.lstm_dim
-        self.num_filter = self.lengths
-        self.embedding_dim = self.char_dim
+        self.num_filter = self.lstm_dim 
+        self.embedding_dim = self.char_dim + self.seg_dim
         self.repeat_times = 4
         self.cnn_output_width = 0
         
@@ -84,7 +83,7 @@ class Model(object):
             model_inputs = tf.nn.dropout(embedding, self.dropout)
 
             # bi-directional lstm layer
-            model_outputs = self.biLSTM_layer(lstm_inputs, self.lstm_dim, self.lengths)
+            model_outputs = self.biLSTM_layer(model_inputs, self.lstm_dim, self.lengths)
 
             # logits for tags
             self.logits = self.project_layer_bilstm(model_outputs)
@@ -172,19 +171,31 @@ class Model(object):
                 sequence_length=lengths)
         return tf.concat(outputs, axis=2)
     
-    #IDCNN layer by crownpku
+    #IDCNN layer 
     def IDCNN_layer(self, model_inputs, 
                     name=None):
         """
         :param idcnn_inputs: [batch_size, num_steps, emb_size] 
         :return: [batch_size, num_steps, cnn_output_width]
         """
+        model_inputs = tf.expand_dims(model_inputs, 1)
+        reuse = False
+        if self.dropout == 1.0:
+            reuse = True
         with tf.variable_scope("idcnn" if not name else name):
+            shape=[1, self.filter_width, self.embedding_dim,
+                       self.num_filter]
+            print(shape)
             filter_weights = tf.get_variable(
                 "idcnn_filter",
                 shape=[1, self.filter_width, self.embedding_dim,
                        self.num_filter],
                 initializer=self.initializer)
+            
+            """
+            shape of input = [batch, in_height, in_width, in_channels]
+            shape of filter = [filter_height, filter_width, in_channels, out_channels]
+            """
             layerInput = tf.nn.conv2d(model_inputs,
                                       filter_weights,
                                       strides=[1, 1, 1, 1],
@@ -266,8 +277,7 @@ class Model(object):
                 W = tf.get_variable("W", shape=[self.cnn_output_width, self.num_tags],
                                     dtype=tf.float32, initializer=self.initializer)
 
-                b = tf.get_variable("b", shape=[self.num_tags], dtype=tf.float32,
-                                    initializer=tf.constant(0.001, shape=[self.num_tags]))
+                b = tf.get_variable("b",  initializer=tf.constant(0.001, shape=[self.num_tags]))
 
                 pred = tf.nn.xw_plus_b(idcnn_outputs, W, b)
 
