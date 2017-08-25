@@ -1,6 +1,6 @@
 
 
-# Chinese NER by IDCNN with CRF layer
+# Chinese NER by IDCNN with CRF layer (with option of using biLSTM with CRF layer)
 
 End to End Chinese Named Entity Recognition by Iterated Dilated Convolution Nerual Networks with Conditional Random Field layer.
 
@@ -47,16 +47,26 @@ python3 main.py --train=True --clean=True --model_type=bilstm
 
 ### * Inference with command line input:
 
+Following command will run your trained model at /ckpt
 
 ```
 python3 main.py
 ```
 
-We have provided with a pre-trained NER model in ckpt_IDCNN. To test the pre-trained model, simply run
+We have provided with pre-trained NER models. 
+
+To test the pre-trained IDCNN+CRF model, run
 
 ```
 python3 main.py --ckpt_path=ckpt_IDCNN
 ```
+
+To test the pre-trained biLSTM+CRF model, run
+
+```
+python3 main.py --ckpt_path=ckpt_biLSTM
+```
+
 
 
 
