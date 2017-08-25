@@ -1,15 +1,19 @@
 # Information-Extraction-Chinese
 
 
-Chinese information extraction, including named entity recognition, relation extraction and more.
+Chinese information extraction, including named entity recognition, relation extraction and more, focused on state-of art deep learning methods.
 
 
-#### [End-to-End Neural Relation Extraction for Chinese](https://github.com/crownpku/Information-Extraction-Chinese/tree/master/RE_BGRU_2ATT)
+#### [Chinese Relation Extraction by biGRU with Character and Sentence Attentions](https://github.com/crownpku/Information-Extraction-Chinese/tree/master/RE_BGRU_2ATT)
+
+Chinese Relation Extraction using biGRU+2ATT
 
 Detailed readme.md in RE_BGRU_2ATT/
 
 
-#### [Chinese NER by IDCNN with CRF layer](https://github.com/crownpku/Information-Extraction-Chinese/tree/master/NER_IDCNN_CRF)
+#### [Chinese Named Entity Recognition by IDCNN/biLSTM with CRF layer](https://github.com/crownpku/Information-Extraction-Chinese/tree/master/NER_IDCNN_CRF)
+
+Chinese Named Entity Recognition using IDCNN/biLSTM+CRF
 
 Detailed readme.md in NER_IDCNN_CRF/
 

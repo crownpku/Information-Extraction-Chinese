@@ -1,8 +1,7 @@
 
 
-# Chinese NER by IDCNN with CRF layer 
+# Chinese Named Entity Recognition using IDCNN/biLSTM+CRF
 
-### with option of using biLSTM with CRF layer
 
 End to End Chinese Named Entity Recognition by Iterated Dilated Convolution Nerual Networks with Conditional Random Field layer.
 
@@ -76,6 +75,9 @@ python3 main.py --ckpt_path=ckpt_biLSTM
 
 ```
 INFO:tensorflow:Restoring parameters from ckpt_IDCNN/ner.ckpt
+
+{'string': '香港的房价已经到达历史巅峰,乌溪沙地铁站上盖由新鸿基地产公司开发的银湖天峰,现在的尺价已经超过一万五千港币。'，
+'entities': [{'word': '香港', 'end': 2, 'start': 0, 'type': 'LOC'}, {'word': '乌溪沙地铁站', 'end': 20, 'start': 14, 'type': 'LOC'}, {'word': '新鸿基地产公司', 'end': 30, 'start': 23, 'type': 'ORG'}, {'word': '银湖天峰', 'end': 37, 'start': 33, 'type': 'LOC'}]}
 
 {'string': '联想集团的总部位于北京,首席执行官是杨元庆先生', 
 'entities': [{'end': 4, 'start': 0, 'word': '联想集团', 'type': 'ORG'}, {'end': 11, 'start': 9, 'word': '北京', 'type': 'LOC'}, {'end': 21, 'start': 18, 'word': '杨元庆', 'type': 'PER'}]}
