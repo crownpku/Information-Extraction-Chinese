@@ -1,6 +1,8 @@
 
 
-# Chinese NER by IDCNN with CRF layer (with option of using biLSTM with CRF layer)
+# Chinese NER by IDCNN with CRF layer 
+
+### with option of using biLSTM with CRF layer
 
 End to End Chinese Named Entity Recognition by Iterated Dilated Convolution Nerual Networks with Conditional Random Field layer.
 
