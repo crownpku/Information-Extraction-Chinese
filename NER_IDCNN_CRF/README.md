@@ -11,6 +11,13 @@ Original code in https://github.com/zjy-ucas/ChineseNER with BiLSTM+CRF, modifie
 Original paper [Fast and Accurate Entity Recognition with Iterated Dilated Convolutions](https://arxiv.org/abs/1702.02098)
 
 
+![](http://crownpku.github.io/images/201708/3.jpg)
+
+
+![](http://crownpku.github.io/images/201708/4.jpg)
+
+
+
 ## Requrements
 
 * Python (>=3.5)
