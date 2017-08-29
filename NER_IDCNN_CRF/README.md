@@ -37,13 +37,13 @@ Current sample data includes 3 types of Named Entities, including ORG, PER and L
 To train with IDCNN+CRF (default), run:
 
 ```
-python3 main.py --train=True --clean=True --model_type=idcnn
+#python3 main.py --train=True --clean=True --model_type=idcnn
 ```
 
 To train with biLSTM + CRF, run:
 
 ```
-python3 main.py --train=True --clean=True --model_type=bilstm
+#python3 main.py --train=True --clean=True --model_type=bilstm
 ```
 
 
@@ -52,7 +52,7 @@ python3 main.py --train=True --clean=True --model_type=bilstm
 Following command will run your trained model at /ckpt
 
 ```
-python3 main.py
+#python3 main.py
 ```
 
 We have provided with pre-trained NER models. 
@@ -60,13 +60,13 @@ We have provided with pre-trained NER models.
 To test the pre-trained IDCNN+CRF model, run
 
 ```
-python3 main.py --ckpt_path=ckpt_IDCNN
+#python3 main.py --ckpt_path=ckpt_IDCNN
 ```
 
 To test the pre-trained biLSTM+CRF model, run
 
 ```
-python3 main.py --ckpt_path=ckpt_biLSTM
+#python3 main.py --ckpt_path=ckpt_biLSTM
 ```
 
 

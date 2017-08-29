@@ -37,22 +37,29 @@ unknown, 父母, 夫妻, 师生, 兄弟姐妹, 合作, 情侣, 祖孙, 好友, �
 
 2. Organize data into npy files, which will be save at data/
 ```
-python initial.py
+#python3 initial.py
 ```
 
 3. Training, models will be save at model/
 ```
-python train_GRU.py
+#python3 train_GRU.py
 ```
 
 
 ### * Inference, remeber to change the model name:
 
 ```
-python test_GRU.py
+#python3 test_GRU.py
 ```
 
 Program will ask for data input in the format of "name1 name2 sentence".
+
+We have pre-trained model in /model. To test the pre-trained model, simply initialize the data and run test_GRU.py:
+
+```
+#python3 initial.py
+#python3 test_GRU.py
+```
 
 
 ## Sample Results
