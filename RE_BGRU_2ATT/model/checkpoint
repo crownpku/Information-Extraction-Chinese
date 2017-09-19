@@ -1,0 +1,2 @@
+model_checkpoint_path: "ATT_GRU_model-9200"
+all_model_checkpoint_paths: "ATT_GRU_model-9200"
