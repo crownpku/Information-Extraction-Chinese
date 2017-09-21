@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>End-to-End Neural Coreference Resolution Demo</title>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>End-to-end Neural Coreference Resolution</h2>
+                    <p>This is the demo for the coreference resolution system described in: </p>
+                    <div class="well text-left" style="display:inline-block">
+                        <b><a href="https://homes.cs.washington.edu/~kentonl/pub/lhlz-emnlp.2017.pdf">End-to-end Neural Coreference Resolution</a></b>
+                        <br>
+                        <a href="https://homes.cs.washington.edu/~kentonl">Kenton Lee</a>,
+                        <a href="https://homes.cs.washington.edu/~luheng">Luheng He</a>,
+                        <a href="https://research.fb.com/people/lewis-mike">Mike Lewis</a> and
+                        <a href="https://www.cs.washington.edu/people/faculty/lsz">Luke Zettlemoyer</a>
+                        <br>
+                        <em>In Proceedings of the Conference on Empirical Methods in Natural Language Process (EMNLP), 2017.</em>
+                    </div>
+                    <p>Submit an input document below. A simple example is provided.</p>
+                    <p>On the right side, the highest-scoring spans are shown. On the left side, the predicted coreference cluster (mentions of the same entity) are shown.</p>
+                    <p>Hover over the mentions on either side to highlight their location in the document and render the attention weights of the words.</p>
+                    <p>The code is available <a href="https://github.com/kentonl/e2e-coref">here</a>.</p>
+                </div>
+            </div>
+            <form role="form" id="input-form">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <h4>Input Document</h4>
+                            <textarea id="input-doc" class="form-control" rows="5" required>Unlike many elite athletes, Federer had a long-term plan from an early age to preserve his body, paying close attention to fitness with the trainer Pierre Paganini. Unlike many young tennis stars, Federer avoided overplaying, managing his schedule sagaciously.</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" id="form-submit" class="btn btn-primary">Submit</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input id="show-attention" type="checkbox" class="custom-control-input">
+                        <span class="custom-control-description">Render attention weights on hover</span>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-3">
+                    <h4 id="predicted-clusters-title"></h4>
+                    <ul id="predicted-clusters" class="list-group"></ul>
+                </div>
+                <div class="col-md-6">
+                    <h4 id="text-title"></h4>
+                    <p id="text" class="lead"></p>
+                </div>
+                <div class="col-md-3">
+                    <h4 id="top-spans-title"></h4>
+                    <ul id="top-spans" class="list-group"></ul>
+                </div>
+            </div>
+    </body>
+</html>
