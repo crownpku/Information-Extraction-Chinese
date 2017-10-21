@@ -13,7 +13,7 @@ Details in folder RE_BGRU_2ATT/
 
 #### [Chinese Named Entity Recognition by IDCNN/biLSTM with CRF layer](https://github.com/crownpku/Information-Extraction-Chinese/tree/master/NER_IDCNN_CRF)
 
-Details in folderNER_IDCNN_CRF/
+Details in folder NER_IDCNN_CRF/
 
 
 ## Reference
