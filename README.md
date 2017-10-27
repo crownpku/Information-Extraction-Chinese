@@ -16,7 +16,7 @@ Details in folder RE_BGRU_2ATT/
 Details in folder NER_IDCNN_CRF/
 
 
-#### [Iterated Dilated Convolutions for Chinese Word Segmentation](https://github.com/hankcs/ID-CNN-CWS)
+#### [Chinese Word Segmentation by Iterated Dilated Convolutions](https://github.com/hankcs/ID-CNN-CWS)
 
 Details at [https://github.com/hankcs/ID-CNN-CWS](https://github.com/hankcs/ID-CNN-CWS)
 
