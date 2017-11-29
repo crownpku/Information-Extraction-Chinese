@@ -148,7 +148,7 @@ def train():
         test_sentences, char_to_id, tag_to_id, FLAGS.lower
     )
     print("%i / %i / %i sentences in train / dev / test." % (
-        len(train_data), 0, len(test_data)))
+        len(train_data), len(dev_data), len(test_data)))
 
     train_manager = BatchManager(train_data, FLAGS.batch_size)
     dev_manager = BatchManager(dev_data, 100)
