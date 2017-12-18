@@ -73,7 +73,7 @@ class GRU:
         inputs_backward = tf.concat(axis=2,
                                     values=[tf.nn.embedding_lookup(word_embedding, tf.reverse(self.input_word, [1])),
                                             tf.nn.embedding_lookup(pos1_embedding, tf.reverse(self.input_pos1, [1])),
-                                            tf.nn.embedding_lookup(pos1_embedding,
+                                            tf.nn.embedding_lookup(pos2_embedding,
                                                                    tf.reverse(self.input_pos2, [1]))])
 
         outputs_forward = []
