@@ -124,7 +124,10 @@ def main_for_evaluation():
 
 
 def main(_):
+
+    #If you retrain the model, please remember to change the path to your own model below:
     pathname = "./model/ATT_GRU_model-9000"
+    
     wordembedding = np.load('./data/vec.npy')
     test_settings = network.Settings()
     test_settings.vocab_size = 16693
