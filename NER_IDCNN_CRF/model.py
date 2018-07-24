@@ -11,9 +11,10 @@ from data_utils import create_input, iobes_iob
 
 
 class Model(object):
-    def __init__(self, config):
+    def __init__(self, config, is_train=True):
 
         self.config = config
+        self.is_train = is_train
         
         self.lr = config["lr"]
         self.char_dim = config["char_dim"]
@@ -181,7 +182,7 @@ class Model(object):
         """
         model_inputs = tf.expand_dims(model_inputs, 1)
         reuse = False
-        if self.dropout == 1.0:
+        if not self.is_train:
             reuse = True
         with tf.variable_scope("idcnn" if not name else name):
             shape=[1, self.filter_width, self.embedding_dim,
@@ -209,8 +210,7 @@ class Model(object):
                     dilation = self.layers[i]['dilation']
                     isLast = True if i == (len(self.layers) - 1) else False
                     with tf.variable_scope("atrous-conv-layer-%d" % i,
-                                           reuse=True
-                                           if (reuse or j > 0) else False):
+                                           reuse=tf.AUTO_REUSE):
                         w = tf.get_variable(
                             "filterW",
                             shape=[1, self.filter_width, self.num_filter,

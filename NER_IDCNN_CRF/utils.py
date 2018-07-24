@@ -167,9 +167,9 @@ def save_model(sess, model, path, logger):
     logger.info("model saved")
 
 
-def create_model(session, Model_class, path, load_vec, config, id_to_char, logger):
+def create_model(session, Model_class, path, load_vec, config, id_to_char, logger, is_train=True):
     # create model, reuse parameters if exists
-    model = Model_class(config)
+    model = Model_class(config, is_train)
 
     ckpt = tf.train.get_checkpoint_state(path)
     if ckpt and tf.train.checkpoint_exists(ckpt.model_checkpoint_path):
