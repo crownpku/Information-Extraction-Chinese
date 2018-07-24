@@ -181,7 +181,7 @@ class Model(object):
         """
         model_inputs = tf.expand_dims(model_inputs, 1)
         reuse = False
-        if self.dropout == 1.0:
+        if self.config["dropout_keep"] == 1.0:
             reuse = True
         with tf.variable_scope("idcnn" if not name else name):
             shape=[1, self.filter_width, self.embedding_dim,
