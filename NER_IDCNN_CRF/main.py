@@ -113,6 +113,7 @@ def train():
     # Use selected tagging scheme (IOB / IOBES)
     update_tag_scheme(train_sentences, FLAGS.tag_schema)
     update_tag_scheme(test_sentences, FLAGS.tag_schema)
+    update_tag_scheme(dev_sentences, FLAGS.tag_schema)
 
     # create maps if not exist
     if not os.path.isfile(FLAGS.map_file):
