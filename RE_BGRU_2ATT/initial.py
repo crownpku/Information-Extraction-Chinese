@@ -122,7 +122,7 @@ def init():
             en1pos = 0
         en2pos = sentence.find(en2)
         if en2pos == -1:
-            en2post = 0
+            en2pos = 0
         
         output = []
 
@@ -188,7 +188,7 @@ def init():
             en1pos = 0
         en2pos = sentence.find(en2)
         if en2pos == -1:
-            en2post = 0
+            en2pos = 0
             
         output = []
 
