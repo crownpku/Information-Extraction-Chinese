@@ -1,0 +1,2 @@
+tensorflow==1.10.0
+jieba==0.42.1
