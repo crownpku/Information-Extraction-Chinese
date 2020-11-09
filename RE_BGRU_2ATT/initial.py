@@ -213,6 +213,9 @@ def init():
     test_x = []
     test_y = []
 
+    if not os.path.exists("data"):
+        os.makedirs("data")
+
     print('organizing train data')
     f = open('./data/train_q&a.txt', 'w', encoding='utf-8')
     temp = 0
